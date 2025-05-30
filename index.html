@@ -1,0 +1,326 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>cuchichat - Travelers Chatbot</title>
+    <meta name="description" content="cuchichat - Chatbot especializado para agencias de viaje con soporte multilingüe y búsqueda de vuelos en tiempo real.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background-color: #1e1e2f;
+            color: #f1f1f1;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            background: transparent;
+            position: relative;
+            z-index: 10;
+        }
+
+        .brand-logo {
+            font-weight: 700;
+            color: #00c853 !important;
+           
+        }
+
+        .brand-logo img{
+            height:70px;
+            width:auto;
+        }
+
+        header {
+            background: url('https://www.transparenttextures.com/patterns/stardust.png'), radial-gradient(circle at top left, #2a2a3b, #1e1e2f);
+            padding: 2rem 0 3rem 0;
+            text-align: center;
+        }
+
+            header h1 {
+                font-size: 2.5rem;
+                color: #ffffff;
+            }
+
+        .section-dark {
+            background-color: #2a2a3b;
+            padding: 2rem;
+            border-radius: 12px;
+        }
+
+        .chat-window {
+            background-color: transparent;
+            border-radius: 12px;
+            padding: 1rem;
+            height:200px;
+            max-height: 250px;
+            overflow-y: hidden;
+            margin-bottom: 1rem;
+            font-size:12px;
+        }
+
+        .chat-message {
+            margin: 0.5rem 0;
+            display: flex;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+            .chat-message.visitor .bubble {
+                background-color: #3b3b4f;
+                color: #fff;
+                border-radius: 15px 15px 15px 0;
+                padding: 0.75rem 1rem;
+                max-width: 75%;
+            }
+
+            .chat-message.agent .bubble {
+                background-color: #3c4f3f;
+                color: #fff;
+                border-radius: 15px 15px 0 15px;
+                padding: 0.75rem 1rem;
+                margin-left: auto;
+                max-width: 75%;
+            }
+
+        .chat-input {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+            .chat-input input {
+                flex-grow: 1;
+                background-color: #2a2a3b;
+                border: none;
+                color: #f1f1f1;
+                padding: 0.5rem;
+                border-radius: 8px;
+            }
+
+        .info-section ul li::before {
+            content: "✅ ";
+        }
+
+        footer {
+            background-color: #12121c;
+            color: #888;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .vector-header {
+            max-width: 200px;
+            margin: 1rem auto 0;
+        }
+
+        .bubble em {
+            color: #b0bec5;
+            font-style: normal;
+            font-size: 0.9rem;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0.5;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="z-depth-0">
+        <div class="nav-wrapper container">
+            <a href="#" class="brand-logo"><div style="display: flex;
+    align-items: center;
+    text-decoration: none;"><img src="logo_elguiachatbot_alpha.png" />cuchichat</div></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="contact.html">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header>
+        <h1 style="margin-top:0px !important;">Optimiza tu Agencia con Inteligencia Conversacional</h1>
+        <div class="container white-text transparent">
+            <div class="chat-window">
+                <div class="chat-message visitor"><div class="bubble">¿Cómo puedo encontrar un vuelo de Madrid a Londres para dos personas?</div></div>
+                <div class="chat-message agent"><div class="bubble">¡Claro! ¿Deseas incluir equipaje o solo vuelo básico?</div></div>
+                <div class="chat-message visitor"><div class="bubble">Necesito ayuda con las recomendaciones de actividades en mi destino.</div></div>
+                <div class="chat-message agent"><div class="bubble">Tenemos actividades culturales, gastronómicas y de aventura. ¿Qué prefieres?</div></div>
+            </div>
+
+        </div>
+
+    </header>
+
+    <main class="container">
+
+        <section class="section section-dark grey darken-4 white-text" style="padding: 3rem 0;">
+            <div class="container">
+                <div class="row valign-wrapper">
+                    <div class="col s12 m6">
+                        <h4 class="green-text text-accent-3">Transforma tu agencia con IA</h4>
+                        <h5 class="white-text" style="font-weight: 300;">Una nueva era de atención al cliente para el turismo</h5>
+                        <p style="font-size: 1.1rem; margin-top: 1.5rem;">
+                            En la era digital, la atención inmediata y personalizada es clave para destacar en el competitivo sector de los viajes.
+                            Implementar un <strong>chatbot inteligente 24/7</strong> permite a tu agencia mejorar la experiencia del cliente, automatizar procesos y aumentar las ventas.
+                        </p>
+                        <p style="font-size: 1.1rem;">
+                            Nuestro sistema ofrece asistencia en tiempo real para <strong>reservas</strong>, <strong>consultas</strong> y <strong>organización de viajes</strong>, todo desde una plataforma moderna y amigable.
+                        </p>
+                    </div>
+                    <div class="col s12 m6 center-align">
+                        <img src="https://cdn-icons-png.flaticon.com/512/4712/4712106.png" alt="Chatbot Icon" class="responsive-img" style="max-width: 250px; filter: brightness(1.2);">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <div class="section-dark z-depth-1" style="margin-top: 2rem;">
+            <h4 class="center-align" style="color: #00e676; margin-bottom: 2rem;">¿Por qué implementar este chatbot?</h4>
+
+            <div class="row">
+                <div class="col s12 m6 l4">
+                    <div class="card-panel grey darken-4 hoverable">
+                        <h6><i class="fas fa-clock left green-text"></i> Atención 24/7</h6>
+                        <p style="font-size: 0.95rem;">Disponibilidad constante para responder dudas en cualquier huso horario.</p>
+                    </div>
+                </div>
+
+                <div class="col s12 m6 l4">
+                    <div class="card-panel grey darken-4 hoverable">
+                        <h6><i class="fas fa-robot left green-text"></i> Automatiza reservas</h6>
+                        <p style="font-size: 0.95rem;">Reserva vuelos, hoteles o paquetes sin intervención humana.</p>
+                    </div>
+                </div>
+
+                <div class="col s12 m6 l4">
+                    <div class="card-panel grey darken-4 hoverable">
+                        <h6><i class="fas fa-magic left green-text"></i> Recomendaciones con IA</h6>
+                        <p style="font-size: 0.95rem;">Sugerencias personalizadas por preferencias, intereses y presupuesto.</p>
+                    </div>
+                </div>
+
+                <div class="col s12 m6 l4">
+                    <div class="card-panel grey darken-4 hoverable">
+                        <h6><i class="fas fa-chart-line left green-text"></i> Reduce costos</h6>
+                        <p style="font-size: 0.95rem;">Menos carga operativa para tu equipo y menos errores humanos.</p>
+                    </div>
+                </div>
+
+                <div class="col s12 m6 l4">
+                    <div class="card-panel grey darken-4 hoverable">
+                        <h6><i class="fas fa-plug left green-text"></i> Integración total</h6>
+                        <p style="font-size: 0.95rem;">Compatible con CRM, WhatsApp, redes sociales y sitio web.</p>
+                    </div>
+                </div>
+
+                <div class="col s12 m6 l4">
+                    <div class="card-panel grey darken-4 hoverable">
+                        <h6><i class="fas fa-shield-alt left green-text"></i> Pagos seguros</h6>
+                        <p style="font-size: 0.95rem;">Soporta pasarelas como Stripe, Mercado Pago y PayPal.</p>
+                    </div>
+                </div>
+
+                <div class="col s12 m6 l4">
+                    <div class="card-panel grey darken-4 hoverable">
+                        <h6><i class="fas fa-language left green-text"></i> Soporte multicanal</h6>
+                        <p style="font-size: 0.95rem;">Funciona en varios idiomas y plataformas al mismo tiempo.</p>
+                    </div>
+                </div>
+
+                <div class="col s12 m6 l4">
+                    <div class="card-panel grey darken-4 hoverable">
+                        <h6><i class="fas fa-chart-pie left green-text"></i> Análisis de datos</h6>
+                        <p style="font-size: 0.95rem;">Recolecta feedback para mejorar continuamente los servicios.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        &copy; 2025 cuchichat | <a href="privacy.html" style="color:#00c853;">Política de privacidad</a> | <a href="terms_and_conditions.html" style="color:#00c853;">Términos y condiciones</a>
+    </footer>
+
+    <script>
+        // Simulación animada de entrada de mensajes (mock)
+        const messages = document.querySelectorAll('.chat-message');
+        messages.forEach((msg, i) => {
+            msg.style.animationDelay = `${i * 0.3}s`;
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const chatWindow = document.querySelector(".chat-window");
+            const messages = [
+                { from: "visitor", text: "¿Cómo puedo encontrar un vuelo de Madrid a Londres para dos personas?" },
+                { from: "agent", text: "Espera un momento... 🤔", typing: true },
+                { from: "agent", text: "¡Claro! ¿Deseas incluir equipaje o solo vuelo básico?" },
+                { from: "visitor", text: "Necesito ayuda con las recomendaciones de actividades en mi destino." },
+                { from: "agent", text: "Espera un segundo... 🧠", typing: true },
+                { from: "agent", text: "Tenemos actividades culturales, gastronómicas y de aventura. ¿Qué prefieres?" },
+                { from: "visitor", text: "he escuchado que alemania es lindo que hay de interesante?." },
+            ];
+
+            let index = 0;
+
+            function showNextMessage() {
+                if (index >= messages.length) return;
+
+                const msg = messages[index];
+                const messageEl = document.createElement("div");
+                messageEl.classList.add("chat-message", msg.from);
+
+                if (msg.typing) {
+                    const typingEl = document.createElement("div");
+                    typingEl.classList.add("bubble");
+                    typingEl.innerHTML = `<em>Escribiendo...</em>`;
+                    messageEl.appendChild(typingEl);
+                    chatWindow.appendChild(messageEl);
+                    chatWindow.scrollTop = chatWindow.scrollHeight;
+
+                    setTimeout(() => {
+                        messageEl.remove();
+                        const finalMessage = document.createElement("div");
+                        finalMessage.classList.add("chat-message", msg.from);
+                        finalMessage.innerHTML = `<div class="bubble">${msg.text}</div>`;
+                        chatWindow.appendChild(finalMessage);
+                        chatWindow.scrollTop = chatWindow.scrollHeight;
+                        index++;
+                        setTimeout(showNextMessage, 1200);
+                    }, 1000);
+                } else {
+                    messageEl.innerHTML = `<div class="bubble">${msg.text}</div>`;
+                    chatWindow.appendChild(messageEl);
+                    chatWindow.scrollTop = chatWindow.scrollHeight;
+                    index++;
+                    setTimeout(showNextMessage, 1500);
+                }
+            }
+
+            chatWindow.innerHTML = ""; // Limpiar mensajes predefinidos
+            setTimeout(showNextMessage, 1000);
+        });
+    </script>
+</body>
+</html>
